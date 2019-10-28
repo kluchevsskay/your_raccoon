@@ -8,7 +8,6 @@ from PyQt5.QtGui import QPixmap
 from PyQt5 import QtCore
 
 
-
 class MyWidget(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -19,10 +18,14 @@ class MyWidget(QMainWindow):
         self.name_picture = 'сидит.jpg'
         self.picture1 = QPixmap(self.name_picture)
         self.picture.setPixmap(self.picture1)
-        
+
+        # запуск таймера при нажатии кнопки
+
         self.begin.clicked.connect(self.doAction)
 
         self.timer = QtCore.QBasicTimer()
+
+        # процентные показатели жизнедеятельности
 
         self.step_food = 100
         self.step_healthy = 100
@@ -39,8 +42,22 @@ class MyWidget(QMainWindow):
         if self.step_food < 70:
             self.number_mood += 0.2
 
-
     def timerEvent(self, e):
+
+        """функция для реагирования на события таймера, переопределение обработчик событий"""
+
+        # случай, когда один из показателей равен нулю
+
+        if self.step_food < 1 or self.step_mood < 1 or self.step_clean < 1 \
+                or self.step_healthy < 1 or self.step_sleep < 1:
+            self.timer.stop()
+            self.begin.setText('ВСЁ СНАЧАЛА')
+
+            self.name_picture = 'обиделся.jpg'
+            self.picture1 = QPixmap(self.name_picture)
+            self.picture.setPixmap(self.picture1)
+            QApplication.processEvents()
+            return
 
         self.step_food = self.step_food - self.number_food
         self.food.setValue(self.step_food)
@@ -58,6 +75,11 @@ class MyWidget(QMainWindow):
         self.mood.setValue(self.step_mood)
 
     def doAction(self):
+
+        """запуск таймера, его отсановка и рестарт"""
+
+        # сброс процентных показатели жизнедеятельности
+
         self.step_food = 100
         self.step_healthy = 100
         self.step_sleep = 100
@@ -67,9 +89,11 @@ class MyWidget(QMainWindow):
         if self.timer.isActive():
             self.timer.stop()
             self.begin.setText('ВСЁ СНАЧАЛА')
+            QApplication.processEvents()
         else:
             self.timer.start(100, self)
             self.begin.setText('ЗАВЕРШИТЬ')
+            QApplication.processEvents()
 
 
 if __name__ == '__main__':

@@ -187,6 +187,53 @@
       <height>51</height>
      </rect>
     </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>178</red>
+          <green>255</green>
+          <blue>89</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>178</red>
+          <green>255</green>
+          <blue>89</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>178</red>
+          <green>255</green>
+          <blue>89</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>CrossCursor</cursorShape>
+    </property>
     <property name="text">
      <string>ВСЁ СНАЧАЛА</string>
     </property>
@@ -278,7 +325,7 @@ p, li { white-space: pre-wrap; }
    <widget class="QLabel" name="healthy_pic">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>50</x>
       <y>500</y>
       <width>80</width>
       <height>80</height>
@@ -325,7 +372,7 @@ p, li { white-space: pre-wrap; }
    <widget class="QLabel" name="mood_pic">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>50</x>
       <y>680</y>
       <width>80</width>
       <height>80</height>
@@ -356,7 +403,7 @@ p, li { white-space: pre-wrap; }
    <widget class="QLabel" name="sleep_pic">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>50</x>
       <y>860</y>
       <width>80</width>
       <height>80</height>
@@ -387,7 +434,7 @@ p, li { white-space: pre-wrap; }
    <widget class="QLabel" name="food_pic">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>50</x>
       <y>590</y>
       <width>80</width>
       <height>80</height>
@@ -503,7 +550,7 @@ p, li { white-space: pre-wrap; }
    <widget class="QLabel" name="clean_pic">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>50</x>
       <y>770</y>
       <width>80</width>
       <height>80</height>
@@ -545,6 +592,86 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="value">
      <number>24</number>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>870</y>
+      <width>31</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>CrossCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string>?</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="qst_clean">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>780</y>
+      <width>31</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>CrossCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string>?</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="qst_mood">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>690</y>
+      <width>31</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>CrossCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string>?</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="qst_food">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>600</y>
+      <width>31</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>CrossCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string>?</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="qst_healthy">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>510</y>
+      <width>31</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>CrossCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string>?</string>
     </property>
    </widget>
   </widget>
