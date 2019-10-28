@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>839</width>
+    <height>956</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>839</width>
+    <height>956</height>
+   </size>
+  </property>
+  <property name="baseSize">
+   <size>
+    <width>839</width>
+    <height>1056</height>
+   </size>
+  </property>
+  <property name="palette">
+   <palette>
+    <active>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>233</red>
+        <green>30</green>
+        <blue>99</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>244</red>
+        <green>143</green>
+        <blue>177</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </active>
+    <inactive>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>233</red>
+        <green>30</green>
+        <blue>99</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>244</red>
+        <green>143</green>
+        <blue>177</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </inactive>
+    <disabled>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>244</red>
+        <green>143</green>
+        <blue>177</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>244</red>
+        <green>143</green>
+        <blue>177</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </disabled>
+   </palette>
+  </property>
+  <property name="cursor">
+   <cursorShape>CrossCursor</cursorShape>
+  </property>
+  <property name="windowTitle">
+   <string>Твой милый енот. Это не шутка. Наслаждайся</string>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>40</width>
+    <height>40</height>
+   </size>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="minimumSize">
+    <size>
+     <width>839</width>
+     <height>749</height>
+    </size>
+   </property>
+   <property name="baseSize">
+    <size>
+     <width>839</width>
+     <height>749</height>
+    </size>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
+   <widget class="QProgressBar" name="mood">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>709</y>
+      <width>271</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>CrossCursor</cursorShape>
+    </property>
+    <property name="value">
+     <number>24</number>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="food">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>620</y>
+      <width>271</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>CrossCursor</cursorShape>
+    </property>
+    <property name="value">
+     <number>24</number>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="clean">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>800</y>
+      <width>271</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>CrossCursor</cursorShape>
+    </property>
+    <property name="value">
+     <number>24</number>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="sleep">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>890</y>
+      <width>271</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>CrossCursor</cursorShape>
+    </property>
+    <property name="value">
+     <number>24</number>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="begin">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ВСЁ СНАЧАЛА</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowser">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>520</y>
+      <width>391</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>244</red>
+          <green>143</green>
+          <blue>177</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>244</red>
+          <green>143</green>
+          <blue>177</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>244</red>
+          <green>143</green>
+          <blue>177</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>244</red>
+          <green>143</green>
+          <blue>177</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>244</red>
+          <green>143</green>
+          <blue>177</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>244</red>
+          <green>143</green>
+          <blue>177</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="cursor" stdset="0">
+     <cursorShape>CrossCursor</cursorShape>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; font-style:italic; text-decoration: underline;&quot;&gt;Здравствуйте! Вам выпала УнИкАлЬнАя возможность пожить с ЕНОТОМ. Будьте ответственны: не забывайте его кормить, развлекать, мыть, лечить и так далее. Надеемся, вы понравитесь друг другу! :)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="healthy_pic">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>500</y>
+      <width>80</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>80</width>
+      <height>80</height>
+     </size>
+    </property>
+    <property name="baseSize">
+     <size>
+      <width>80</width>
+      <height>80</height>
+     </size>
+    </property>
+    <property name="cursor">
+     <cursorShape>OpenHandCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>хилка.jpg</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="picture">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>30</y>
+      <width>601</width>
+      <height>451</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>CrossCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="mood_pic">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>680</y>
+      <width>80</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>80</width>
+      <height>80</height>
+     </size>
+    </property>
+    <property name="baseSize">
+     <size>
+      <width>80</width>
+      <height>80</height>
+     </size>
+    </property>
+    <property name="cursor">
+     <cursorShape>OpenHandCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>настроение.jpg</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="sleep_pic">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>860</y>
+      <width>80</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>80</width>
+      <height>80</height>
+     </size>
+    </property>
+    <property name="baseSize">
+     <size>
+      <width>80</width>
+      <height>80</height>
+     </size>
+    </property>
+    <property name="cursor">
+     <cursorShape>OpenHandCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>сон.jpg</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="food_pic">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>590</y>
+      <width>80</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>80</width>
+      <height>80</height>
+     </size>
+    </property>
+    <property name="baseSize">
+     <size>
+      <width>80</width>
+      <height>80</height>
+     </size>
+    </property>
+    <property name="cursor">
+     <cursorShape>OpenHandCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>еда.jpg</pixmap>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowser_2">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>710</y>
+      <width>391</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>244</red>
+          <green>143</green>
+          <blue>177</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>244</red>
+          <green>143</green>
+          <blue>177</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>244</red>
+          <green>143</green>
+          <blue>177</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>244</red>
+          <green>143</green>
+          <blue>177</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>244</red>
+          <green>143</green>
+          <blue>177</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>244</red>
+          <green>143</green>
+          <blue>177</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="cursor" stdset="0">
+     <cursorShape>CrossCursor</cursorShape>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;right&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Подсказка:&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;right&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Слева от этой надписи расположены показатели жизнедеятельности Вашего нового питомца. Следите за ними и по мере необходимости кликайте на действия к каждому из показателей. Таким образом Вы будете ухаживать за Енотом.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="clean_pic">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>770</y>
+      <width>80</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>80</width>
+      <height>80</height>
+     </size>
+    </property>
+    <property name="baseSize">
+     <size>
+      <width>80</width>
+      <height>80</height>
+     </size>
+    </property>
+    <property name="cursor">
+     <cursorShape>OpenHandCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>душ1.jpg</pixmap>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="healthy">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>530</y>
+      <width>271</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>CrossCursor</cursorShape>
+    </property>
+    <property name="value">
+     <number>24</number>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
