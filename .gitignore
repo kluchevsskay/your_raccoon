@@ -317,3 +317,4 @@ $RECYCLE.BIN/
 
 /.idea/
 information.ui
+!/information.ui
