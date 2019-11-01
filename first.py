@@ -22,13 +22,14 @@ class MyWidget(QMainWindow):
         self.playlist = QMediaPlaylist()
         self.url = QUrl.fromLocalFile('основа.mp3')
         self.playlist.addMedia(QMediaContent(self.url))
-        self.playlist.setPlaybackMode(QMediaPlaylist.Loop)
 
         self.player = QMediaPlayer()
         self.player.setPlaylist(self.playlist)
+        self.player.playlist().setCurrentIndex(0)
         self.player.play()
 
         # основное изображение
+
         self.name_picture = 'сидит.jpg'
         self.picture1 = QPixmap(self.name_picture)
         self.picture.setPixmap(self.picture1)
@@ -83,9 +84,15 @@ class MyWidget(QMainWindow):
         self.sleep_btn.clicked.connect(lambda: self.life('sleep', 40))
         self.clean_btn.clicked.connect(lambda: self.life('clean', 50))
 
-        # работа кнопки про музыку
+        # работа кнопки про музыку и информацию ("?")
 
         self.misic.clicked.connect(lambda: self.openDialog('музыка'))
+        self.qst_clean.clicked.connect(lambda: self.openDialog('чистота'))
+        self.qst_sleep.clicked.connect(lambda: self.openDialog('сон'))
+        self.qst_food.clicked.connect(lambda: self.openDialog('еда'))
+        self.qst_mood.clicked.connect(lambda: self.openDialog('настроение'))
+        self.qst_healthy.clicked.connect(lambda: self.openDialog('здоровье'))
+        self.alina.clicked.connect(lambda: self.openDialog('автор'))
 
     def openDialog(self, name):
 
@@ -108,6 +115,8 @@ class MyWidget(QMainWindow):
             self.begin.setText('ВСЁ СНАЧАЛА')
 
             self.picturePutOn('обиделся.jpg')
+            self.player.playlist().setCurrentIndex(0)
+            self.player.play()
             return
 
         # тревожная музыка на фон
@@ -116,24 +125,26 @@ class MyWidget(QMainWindow):
                 or self.step_healthy < 50 or self.step_sleep < 50:
             self.url = QUrl.fromLocalFile('тревога.mp3')
             self.playlist.addMedia(QMediaContent(self.url))
-            self.playlist.setPlaybackMode(QMediaPlaylist.Loop)
+
+            self.player.playlist().setCurrentIndex(1)
+            self.player.play()
 
         # зависимость главного изображения от показателей
 
         if self.step_food < 90:
             self.picturePutOn('просит кушать.jpg')
             QApplication.processEvents()
-        if self.step_mood < 90:
+        elif self.step_mood < 90:
             self.picturePutOn('скучно.jpg')
             QApplication.processEvents()
-        if self.step_sleep < 90:
+        elif self.step_healthy < 90:
+            self.picturePutOn('болеет.jpg')
+            QApplication.processEvents()
+        elif self.step_sleep < 90:
             self.picturePutOn('хочет спать.jpg')
             QApplication.processEvents()
-        if self.step_clean < 90:
+        elif self.step_clean < 90:
             self.picturePutOn('грязный.jpg')
-            QApplication.processEvents()
-        if self.step_healthy < 90:
-            self.picturePutOn('болеет.jpg')
             QApplication.processEvents()
 
         # изменение показателей прогресс-баров
@@ -225,6 +236,41 @@ class Information(QDialog):
             self.text.setText('Ти́моти Макке́нзи, более известный по сценическому имени Labrinth, — британский '
                               'автор-исполнитель и музыкальный продюсер. В данном приложении используются'
                               'его треки New Girl и Following Tyler')
+        elif self.name == 'чистота':
+            self.text.setText('Енот относится к числу чистоплотных животных и вполне самостоятельно может'
+                              ' справиться с чистотой своей шкурки, ввиду этого процедуру купания следует '
+                              'проводить не чаще 3-4 раз в год, применяя при этом обыкновенные шампуни для'
+                              ' животных. Большие усилия хозяин енота должен направлять на еженедельную чистку'
+                              ' вольера.')
+        elif self.name == 'еда':
+            self.text.setText('Эти милые звери всеядны и неприхотливы в выборе своей пищи. Для здорового'
+                              ' существования зверька в условиях квартиры его рацион должен быть приближен к'
+                              ' тому что и в естественных условиях (нежное мясо и отваренная рыба). Для здорового '
+                              'пищеварения в рацион зверушки должны входить следующие фрукты на выбор: слива, яблоко,'
+                              ' виноград, банан, а также различные ягоды. Экспериментировать с цитрусовыми не стоит,'
+                              ' так как это чревато для зверя аллергией. ')
+        elif self.name == 'здоровье':
+            self.text.setText('Конечно, прежде, чем привести зверя в дом, следует показать его врачу-ветеринару,'
+                              ' для того чтобы сделать прививки, проверить наличие паразитов в организме животного.'
+                              ' Еноты очень чувствительны к воздействию на них прямых солнечных лучей, и могут'
+                              ' получить тепловой удар, стоит обезопасить питомца от этого. ')
+        elif self.name == 'сон':
+            self.text.setText('Владельцы енотов отмечают, что эти проныры с полосатым хвостом обожают сон.'
+                              ' Может доходить до того, что енот засыпает непосредственно в процессе игры '
+                              'со своим владельцем. Почуяв зевоту и легкую сонливость, енот без стеснения '
+                              'заваливается в спячку на том же месте, где стоит.')
+        elif self.name == 'настроение':
+            self.text.setText('Вся жизнь енота – это одна сплошная авантюра. Если в голову енота заберется'
+                              ' какая-то идея, то он осуществит свои планы несмотря ни на что. Характер енота '
+                              'полоскуна можно сравнить с непобедимым завоевателем, который приходит в жизнь '
+                              'человека, чтобы завоевать его сердце, захватить симпатию и пленить все свободное'
+                              ' время.')
+        elif self.name == 'автор':
+            self.text.setText('Автором данного приложения является Васильева Алина, более известная под'
+                              ' псевдонимом Ключевская. Этот тамагочи енота был сделан в рамках проекта'
+                              ' Яндекс.Лицея. Странички Алины в соц.сетях: vk.com/damn_sock '
+                              '  stihi.ru/avtor/damnsock   инсту надо добавить')
+
         self.text.setWordWrap(True)
         QApplication.processEvents()
 
