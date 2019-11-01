@@ -788,6 +788,32 @@ p, li { white-space: pre-wrap; }
 АВТОРА ПРОЕКТА</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="on">
+    <property name="geometry">
+     <rect>
+      <x>900</x>
+      <y>180</y>
+      <width>171</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ВКЛЮЧИТЬ МУЗЫКУ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="off">
+    <property name="geometry">
+     <rect>
+      <x>900</x>
+      <y>250</y>
+      <width>171</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ВЫКЛЮЧИТЬ МУЗЫКУ</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

@@ -18,7 +18,6 @@ class MyWidget(QMainWindow):
         uic.loadUi('main1.ui', self)
 
         # проигрывание музыки на фоне
-
         self.playlist = QMediaPlaylist()
         self.url = QUrl.fromLocalFile('основа.mp3')
         self.playlist.addMedia(QMediaContent(self.url))
@@ -28,20 +27,20 @@ class MyWidget(QMainWindow):
         self.player.playlist().setCurrentIndex(0)
         self.player.play()
 
-        # основное изображение
+        # включение и выключение музыки
+        # self.on.clicked.connect(self.player.play())
+        # self.off.clicked.connect(self.player.stop())
 
+        # основное изображение
         self.name_picture = 'сидит.jpg'
         self.picture1 = QPixmap(self.name_picture)
         self.picture.setPixmap(self.picture1)
 
         # запуск таймера при нажатии кнопки
-
         self.begin.clicked.connect(self.doAction)
-
         self.timer = QtCore.QBasicTimer()
 
         # процентные показатели жизнедеятельности
-
         self.step_food = 100
         self.step_healthy = 100
         self.step_sleep = 100
@@ -52,7 +51,6 @@ class MyWidget(QMainWindow):
                       int(self.step_mood), int(self.step_clean)]
 
         # изменение показателей
-
         self.number_food = 0.25
         self.number_mood = 0.15
         self.number_sleep = 0.2
@@ -60,7 +58,6 @@ class MyWidget(QMainWindow):
         self.number_healthy = 0.1
 
         # зависимость показателей друг от друга
-
         if self.step_food < 70:
             self.number_mood += 0.2
         if self.step_mood < 60:
@@ -77,7 +74,6 @@ class MyWidget(QMainWindow):
             self.number_sleep += 0.2
 
         # работа кнопок "кормить", "лечить" и тд
-
         self.healthy_btn.clicked.connect(lambda: self.life('healthy', 15))
         self.food_btn.clicked.connect(lambda: self.life('food', 20))
         self.mood_btn.clicked.connect(lambda: self.life('mood', 25))
@@ -85,7 +81,6 @@ class MyWidget(QMainWindow):
         self.clean_btn.clicked.connect(lambda: self.life('clean', 50))
 
         # работа кнопки про музыку и информацию ("?")
-
         self.misic.clicked.connect(lambda: self.openDialog('музыка'))
         self.qst_clean.clicked.connect(lambda: self.openDialog('чистота'))
         self.qst_sleep.clicked.connect(lambda: self.openDialog('сон'))
@@ -108,7 +103,6 @@ class MyWidget(QMainWindow):
         """функция для реагирования на события таймера, переопределение обработчик событий"""
 
         # случай, когда один из показателей равен нулю
-
         if self.step_food < 1 or self.step_mood < 1 or self.step_clean < 1 \
                 or self.step_healthy < 1 or self.step_sleep < 1:
             self.timer.stop()
@@ -120,7 +114,6 @@ class MyWidget(QMainWindow):
             return
 
         # тревожная музыка на фон
-
         if self.step_food < 50 or self.step_mood < 50 or self.step_clean < 50 \
                 or self.step_healthy < 50 or self.step_sleep < 50:
             self.url = QUrl.fromLocalFile('тревога.mp3')
@@ -130,7 +123,6 @@ class MyWidget(QMainWindow):
             self.player.play()
 
         # зависимость главного изображения от показателей
-
         if self.step_food < 90:
             self.picturePutOn('просит кушать.jpg')
             QApplication.processEvents()
@@ -148,7 +140,6 @@ class MyWidget(QMainWindow):
             QApplication.processEvents()
 
         # изменение показателей прогресс-баров
-
         self.step_food = self.step_food - self.number_food
         self.food.setValue(self.step_food)
 
@@ -206,9 +197,7 @@ class MyWidget(QMainWindow):
     def doAction(self):
 
         """запуск таймера, его отсановка и рестарт"""
-
         # сброс процентных показатели жизнедеятельности
-
         self.step_food = 100
         self.step_healthy = 100
         self.step_sleep = 100
