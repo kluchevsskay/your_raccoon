@@ -17,6 +17,14 @@ class MyWidget(QMainWindow):
         super().__init__()
         uic.loadUi('main1.ui', self)
 
+        # открытие приветственного окна
+        self.openName()
+
+        if self.gender.Hello() == 'кун':
+            self.gender_of_raccoon.setText('МАЛЬЧИК')
+        elif self.gender.Hello() == 'тян':
+            self.gender_of_raccoon.setText('ДЕВОЧКА')
+
         # проигрывание музыки на фоне
         self.playlist = QMediaPlaylist()
         self.url = QUrl.fromLocalFile('основа.mp3')
@@ -101,6 +109,12 @@ class MyWidget(QMainWindow):
         dialog = Information()
         dialog.setWindowTitle(name)
         dialog.setTextOnLabel(name)
+        dialog.exec_()
+
+    def openName(self):
+        """ открытие приветственного окна"""
+
+        dialog = Hello()
         dialog.exec_()
 
     def timerEvent(self, e):
@@ -278,6 +292,22 @@ class Information(QDialog):
                               '  stihi.ru/avtor/damnsock   инсту надо добавить')
         self.text.setWordWrap(True)
         QApplication.processEvents()
+
+
+class Hello(QDialog):
+    """класс приветственного окна"""
+
+    def __init__(self):
+        super().__init__()
+        uic.loadUi('hello.ui', self)
+
+        # сохранение гендера
+        self.gender_m.clicked(self.genderChosen('кун'))
+        self.gender_f.clicked(self.genderChosen('тян'))
+
+    def genderChosen(self, name):
+        self.gender = name
+        return self.gender
 
 
 if __name__ == '__main__':
