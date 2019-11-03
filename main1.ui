@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1096</width>
+    <width>1041</width>
     <height>956</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1096</width>
+    <width>1041</width>
     <height>956</height>
    </size>
   </property>
   <property name="baseSize">
    <size>
-    <width>1096</width>
+    <width>1041</width>
     <height>956</height>
    </size>
   </property>
@@ -757,7 +757,7 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="misic">
     <property name="geometry">
      <rect>
-      <x>900</x>
+      <x>860</x>
       <y>40</y>
       <width>171</width>
       <height>51</height>
@@ -774,7 +774,7 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="alina">
     <property name="geometry">
      <rect>
-      <x>900</x>
+      <x>860</x>
       <y>110</y>
       <width>171</width>
       <height>51</height>
@@ -791,7 +791,7 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="on">
     <property name="geometry">
      <rect>
-      <x>900</x>
+      <x>860</x>
       <y>180</y>
       <width>171</width>
       <height>51</height>
@@ -804,7 +804,7 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="off">
     <property name="geometry">
      <rect>
-      <x>900</x>
+      <x>860</x>
       <y>250</y>
       <width>171</width>
       <height>51</height>

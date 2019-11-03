@@ -28,8 +28,8 @@ class MyWidget(QMainWindow):
         self.player.play()
 
         # включение и выключение музыки
-        # self.on.clicked.connect(self.player.play())
-        # self.off.clicked.connect(self.player.stop())
+        self.on.clicked.connect(lambda: self.misicOnOff('on'))
+        self.off.clicked.connect(lambda: self.misicOnOff('off'))
 
         # основное изображение
         self.name_picture = 'сидит.jpg'
@@ -89,8 +89,13 @@ class MyWidget(QMainWindow):
         self.qst_healthy.clicked.connect(lambda: self.openDialog('здоровье'))
         self.alina.clicked.connect(lambda: self.openDialog('автор'))
 
-    def openDialog(self, name):
+    def misicOnOff(self, name):
+        if name == 'on':
+            self.player.play()
+        elif name == 'off':
+            self.player.stop()
 
+    def openDialog(self, name):
         """ открытие диалогового окна"""
 
         dialog = Information()
@@ -99,7 +104,6 @@ class MyWidget(QMainWindow):
         dialog.exec_()
 
     def timerEvent(self, e):
-
         """функция для реагирования на события таймера, переопределение обработчик событий"""
 
         # случай, когда один из показателей равен нулю
@@ -113,6 +117,13 @@ class MyWidget(QMainWindow):
             self.player.play()
             return
 
+        # случай, когда все показатели в норме
+        elif self.step_food > 80 or self.step_mood > 80 or self.step_clean > 80 \
+                or self.step_healthy > 80 or self.step_sleep > 80:
+            self.picturePutOn('сидит.jpg')
+            self.player.playlist().setCurrentIndex(0)
+            self.player.play()
+
         # тревожная музыка на фон
         if self.step_food < 50 or self.step_mood < 50 or self.step_clean < 50 \
                 or self.step_healthy < 50 or self.step_sleep < 50:
@@ -121,21 +132,24 @@ class MyWidget(QMainWindow):
 
             self.player.playlist().setCurrentIndex(1)
             self.player.play()
+        else:
+            self.player.playlist().setCurrentIndex(0)
+            self.player.play()
 
         # зависимость главного изображения от показателей
-        if self.step_food < 90:
+        if self.step_food < 80:
             self.picturePutOn('просит кушать.jpg')
             QApplication.processEvents()
-        elif self.step_mood < 90:
+        elif self.step_mood < 80:
             self.picturePutOn('скучно.jpg')
             QApplication.processEvents()
-        elif self.step_healthy < 90:
+        elif self.step_healthy < 80:
             self.picturePutOn('болеет.jpg')
             QApplication.processEvents()
-        elif self.step_sleep < 90:
+        elif self.step_sleep < 80:
             self.picturePutOn('хочет спать.jpg')
             QApplication.processEvents()
-        elif self.step_clean < 90:
+        elif self.step_clean < 80:
             self.picturePutOn('грязный.jpg')
             QApplication.processEvents()
 
@@ -156,7 +170,6 @@ class MyWidget(QMainWindow):
         self.mood.setValue(self.step_mood)
 
     def picturePutOn(self, name):
-
         """ функция для замены основной картинки"""
 
         self.name_picture = name
@@ -164,8 +177,8 @@ class MyWidget(QMainWindow):
         self.picture.setPixmap(self.picture1)
 
     def life(self, name, number):
-
         """ увеличение показателей"""
+
         self.number = number
         self.name = name
         if self.name == 'healthy':
@@ -195,8 +208,8 @@ class MyWidget(QMainWindow):
                 self.step_sleep = 100
 
     def doAction(self):
-
         """запуск таймера, его отсановка и рестарт"""
+
         # сброс процентных показатели жизнедеятельности
         self.step_food = 100
         self.step_healthy = 100
@@ -215,11 +228,15 @@ class MyWidget(QMainWindow):
 
 
 class Information(QDialog):
+    """класс диалогового окна"""
+
     def __init__(self):
         super().__init__()
         uic.loadUi('information.ui', self)
 
     def setTextOnLabel(self, name):
+        """вывод текста в диалоговом окне"""
+
         self.name = name
         if self.name == 'музыка':
             self.text.setText('Ти́моти Макке́нзи, более известный по сценическому имени Labrinth, — британский '
@@ -259,7 +276,6 @@ class Information(QDialog):
                               ' псевдонимом Ключевская. Этот тамагочи енота был сделан в рамках проекта'
                               ' Яндекс.Лицея. Странички Алины в соц.сетях: vk.com/damn_sock '
                               '  stihi.ru/avtor/damnsock   инсту надо добавить')
-
         self.text.setWordWrap(True)
         QApplication.processEvents()
 
