@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1041</width>
+    <width>1471</width>
     <height>956</height>
    </rect>
   </property>
@@ -319,7 +319,7 @@
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; font-style:italic; text-decoration: underline;&quot;&gt;Здравствуйте! Вам выпала УнИкАлЬнАя возможность пожить с ЕНОТОМ. Будьте ответственны: не забывайте его кормить, развлекать, мыть, лечить и так далее. Надеемся, вы понравитесь друг другу! :)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; font-style:italic; text-decoration: underline;&quot;&gt;Вам выпала УнИкАлЬнАя возможность пожить с ЕНОТОМ. Будьте ответственны: не забывайте его кормить, развлекать, мыть, лечить и так далее. Надеемся, вы понравитесь друг другу! :)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="healthy_pic">
@@ -814,36 +814,275 @@ p, li { white-space: pre-wrap; }
      <string>ВЫКЛЮЧИТЬ МУЗЫКУ</string>
     </property>
    </widget>
-   <widget class="QLabel" name="name_of_raccoonn">
+   <widget class="QLabel" name="pic_2">
     <property name="geometry">
      <rect>
-      <x>860</x>
-      <y>360</y>
-      <width>171</width>
-      <height>71</height>
+      <x>1310</x>
+      <y>410</y>
+      <width>131</width>
+      <height>161</height>
      </rect>
     </property>
     <property name="cursor">
      <cursorShape>CrossCursor</cursorShape>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>имя_11.jpg</pixmap>
     </property>
    </widget>
-   <widget class="QLabel" name="gender_of_raccoon">
+   <widget class="QLabel" name="pic">
     <property name="geometry">
      <rect>
-      <x>860</x>
-      <y>440</y>
-      <width>171</width>
+      <x>850</x>
+      <y>410</y>
+      <width>131</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>CrossCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>имя_2.jpg</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="hello_label">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>320</y>
+      <width>591</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;Здравствуйте! Рады видеть Вас в приложении &amp;quot;Youraccoon&amp;quot;! &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;Пожалуйста, введите имя своему новому питомцу:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="name_of_raccoon">
+    <property name="geometry">
+     <rect>
+      <x>1000</x>
+      <y>410</y>
+      <width>291</width>
       <height>41</height>
      </rect>
     </property>
+   </widget>
+   <widget class="QLCDNumber" name="num_healthy">
+    <property name="geometry">
+     <rect>
+      <x>990</x>
+      <y>650</y>
+      <width>101</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>CrossCursor</cursorShape>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="num_food">
+    <property name="geometry">
+     <rect>
+      <x>990</x>
+      <y>750</y>
+      <width>101</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>CrossCursor</cursorShape>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="num_mood">
+    <property name="geometry">
+     <rect>
+      <x>990</x>
+      <y>850</y>
+      <width>101</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>CrossCursor</cursorShape>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="num_clean">
+    <property name="geometry">
+     <rect>
+      <x>1250</x>
+      <y>750</y>
+      <width>101</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>CrossCursor</cursorShape>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="num_sleep">
+    <property name="geometry">
+     <rect>
+      <x>1250</x>
+      <y>850</y>
+      <width>101</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>CrossCursor</cursorShape>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_name">
+    <property name="geometry">
+     <rect>
+      <x>1000</x>
+      <y>510</y>
+      <width>281</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="cursor">
      <cursorShape>CrossCursor</cursorShape>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string/>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::RichText</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="pic_num_healthy">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>650</y>
+      <width>122</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>лечится.jpg</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="pic_num_food">
+    <property name="geometry">
+     <rect>
+      <x>900</x>
+      <y>750</y>
+      <width>81</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>естn.jpg</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="pic_num_mood">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>850</y>
+      <width>131</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>играет.jpg</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="pic_num_clean">
+    <property name="geometry">
+     <rect>
+      <x>1140</x>
+      <y>750</y>
+      <width>95</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>моется.jpg</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="pic_num_sleep">
+    <property name="geometry">
+     <rect>
+      <x>1140</x>
+      <y>850</y>
+      <width>91</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>спит.jpg</pixmap>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="continue_btn">
+    <property name="geometry">
+     <rect>
+      <x>1090</x>
+      <y>460</y>
+      <width>101</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ПОДТВЕРДИТЬ</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="count_label">
+    <property name="geometry">
+     <rect>
+      <x>1140</x>
+      <y>650</y>
+      <width>441</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; font-style:italic;&quot;&gt;СЧЁТЧИК ВЫПОЛНЕННЫХ &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; font-style:italic;&quot;&gt;ДЕЙСТВИЙ:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="count_label_2">
+    <property name="geometry">
+     <rect>
+      <x>1060</x>
+      <y>20</y>
+      <width>441</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; font-style:italic;&quot;&gt;СЧЁТЧИК ИГРОВЫХ&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; font-style:italic;&quot;&gt;ДНЕЙ:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
   </widget>

@@ -17,13 +17,8 @@ class MyWidget(QMainWindow):
         super().__init__()
         uic.loadUi('main1.ui', self)
 
-        # открытие приветственного окна
-        self.openName()
-
-        if self.gender.Hello() == 'кун':
-            self.gender_of_raccoon.setText('МАЛЬЧИК')
-        elif self.gender.Hello() == 'тян':
-            self.gender_of_raccoon.setText('ДЕВОЧКА')
+        # отображение имени
+        self.continue_btn.clicked.connect(self.nameGiven)
 
         # проигрывание музыки на фоне
         self.playlist = QMediaPlaylist()
@@ -97,7 +92,16 @@ class MyWidget(QMainWindow):
         self.qst_healthy.clicked.connect(lambda: self.openDialog('здоровье'))
         self.alina.clicked.connect(lambda: self.openDialog('автор'))
 
+    def nameGiven(self):
+        """ передача введённого имени в специальное поле"""
+
+        self.label_name.setText(self.name_of_raccoon.text())
+        QApplication.processEvents()
+        self.name_of_raccoon.setText('')
+
     def misicOnOff(self, name):
+        """ включение/выключение музыки"""
+
         if name == 'on':
             self.player.play()
         elif name == 'off':
@@ -109,12 +113,6 @@ class MyWidget(QMainWindow):
         dialog = Information()
         dialog.setWindowTitle(name)
         dialog.setTextOnLabel(name)
-        dialog.exec_()
-
-    def openName(self):
-        """ открытие приветственного окна"""
-
-        dialog = Hello()
         dialog.exec_()
 
     def timerEvent(self, e):
@@ -149,6 +147,8 @@ class MyWidget(QMainWindow):
         else:
             self.player.playlist().setCurrentIndex(0)
             self.player.play()
+        self.on.clicked.connect(lambda: self.misicOnOff('on'))
+        self.off.clicked.connect(lambda: self.misicOnOff('off'))
 
         # зависимость главного изображения от показателей
         if self.step_food < 80:
@@ -200,21 +200,25 @@ class MyWidget(QMainWindow):
                 self.step_healthy += self.number
             else:
                 self.step_healthy = 100
+
         elif self.name == 'food':
             if self.step_food + self.number < 100:
                 self.step_food += self.number
             else:
                 self.step_food = 100
+
         elif self.name == 'mood':
             if self.step_mood + self.number < 100:
                 self.step_mood += self.number
             else:
                 self.step_mood = 100
+
         elif self.name == 'clean':
             if self.step_clean + self.number < 100:
                 self.step_clean += self.number
             else:
                 self.step_clean = 100
+
         elif self.name == 'sleep':
             if self.step_sleep + self.number < 100:
                 self.step_sleep += self.number
@@ -288,30 +292,14 @@ class Information(QDialog):
         elif self.name == 'автор':
             self.text.setText('Автором данного приложения является Васильева Алина, более известная под'
                               ' псевдонимом Ключевская. Этот тамагочи енота был сделан в рамках проекта'
-                              ' Яндекс.Лицея. Странички Алины в соц.сетях: vk.com/damn_sock '
-                              '  stihi.ru/avtor/damnsock   инсту надо добавить')
+                              ' Яндекс.Лицея. Странички Алины в соц.сетях: https://www.vk.com/damn_sock '
+                              '  https://www.stihi.ru/login/  https://www.instagram.com/')
         self.text.setWordWrap(True)
         QApplication.processEvents()
-
-
-class Hello(QDialog):
-    """класс приветственного окна"""
-
-    def __init__(self):
-        super().__init__()
-        uic.loadUi('hello.ui', self)
-
-        # сохранение гендера
-        self.gender_m.clicked(self.genderChosen('кун'))
-        self.gender_f.clicked(self.genderChosen('тян'))
-
-    def genderChosen(self, name):
-        self.gender = name
-        return self.gender
 
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = MyWidget()
     ex.show()
-    sys.exit(app.exec())
+    sys.exit(app.exec_())
