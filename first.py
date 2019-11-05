@@ -57,31 +57,17 @@ class MyWidget(QMainWindow):
         self.step_mood = 100
         self.step_clean = 100
 
-        self.steps = [int(self.step_food), int(self.step_healthy), int(self.step_sleep),
-                      int(self.step_mood), int(self.step_clean)]
+        # переменный для счётчика дней
+        self.days = 300
+        self.number_days = 1
+        self.count_days = 0
 
         # изменение показателей
-        self.number_food = 0.25
-        self.number_mood = 0.15
-        self.number_sleep = 0.2
-        self.number_clean = 0.3
-        self.number_healthy = 0.1
-
-        # зависимость показателей друг от друга
-        if self.step_food < 70:
-            self.number_mood += 0.2
-        if self.step_mood < 60:
-            self.number_healthy += 0.2
-        if self.step_clean < 50:
-            self.number_healthy += 0.5
-        if self.step_healthy < 30:
-            self.number_healthy += 0.5
-        if self.step_healthy < 60:
-            self.number_food -= 0.2
-        if self.step_sleep < 50:
-            self.number_mood += 0.3
-        if self.step_mood < 40:
-            self.number_sleep += 0.2
+        self.number_food = 0.5
+        self.number_mood = 0.3
+        self.number_sleep = 0.4
+        self.number_clean = 0.6
+        self.number_healthy = 0.2
 
         # работа кнопок "кормить", "лечить" и тд
         self.healthy_btn.clicked.connect(lambda: self.life('healthy', 15))
@@ -124,6 +110,29 @@ class MyWidget(QMainWindow):
 
     def timerEvent(self, e):
         """функция для реагирования на события таймера, переопределение обработчик событий"""
+
+        # сброс показателей
+        self.number_food = 0.5
+        self.number_mood = 0.3
+        self.number_sleep = 0.4
+        self.number_clean = 0.6
+        self.number_healthy = 0.2
+
+        # зависимость показателей друг от друга
+        if self.step_food < 70:
+            self.number_mood += 0.4
+        elif self.step_mood < 60:
+            self.number_healthy += 0.4
+        elif self.step_clean < 50:
+            self.number_healthy += 0.5
+        elif self.step_healthy < 30:
+            self.number_healthy += 1
+        elif self.step_healthy < 60:
+            self.number_food -= 0.4
+        elif self.step_sleep < 50:
+            self.number_mood += 0.6
+        elif self.step_mood < 40:
+            self.number_sleep += 0.4
 
         # случай, когда один из показателей равен нулю
         if self.step_food < 1 or self.step_mood < 1 or self.step_clean < 1 \
@@ -174,6 +183,12 @@ class MyWidget(QMainWindow):
             self.picturePutOn('грязный.jpg')
             QApplication.processEvents()
 
+        # счётчик дней
+        self.days = self.days - self.number_days
+        if self.days == 0:
+            self.days = 300
+            self.count_days += 1
+
         # изменение показателей прогресс-баров
         self.step_food = self.step_food - self.number_food
         self.food.setValue(self.step_food)
@@ -200,6 +215,10 @@ class MyWidget(QMainWindow):
         self.num_clean.display(self.count_clean)
         QApplication.processEvents()
         self.num_sleep.display(self.count_sleep)
+        QApplication.processEvents()
+
+        # вывод "прожитых" дней
+        self.label_count_days.setText(str(self.count_days))
         QApplication.processEvents()
 
     def picturePutOn(self, name):
@@ -251,6 +270,9 @@ class MyWidget(QMainWindow):
 
     def doAction(self):
         """запуск таймера, его отсановка и рестарт"""
+
+        # сброс счётчика дней
+        self.count_days = 0
 
         # сброс процентных показатели жизнедеятельности
         self.step_food = 100
