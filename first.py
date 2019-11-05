@@ -20,6 +20,13 @@ class MyWidget(QMainWindow):
         # отображение имени
         self.continue_btn.clicked.connect(self.nameGiven)
 
+        # счётчик действий
+        self.count_healthy = 0
+        self.count_food = 0
+        self.count_mood = 0
+        self.count_clean = 0
+        self.count_sleep = 0
+
         # проигрывание музыки на фоне
         self.playlist = QMediaPlaylist()
         self.url = QUrl.fromLocalFile('основа.mp3')
@@ -183,6 +190,18 @@ class MyWidget(QMainWindow):
         self.step_mood = self.step_mood - self.number_mood
         self.mood.setValue(self.step_mood)
 
+        # вывод показателей счётчиков действий
+        self.num_healthy.display(self.count_healthy)
+        QApplication.processEvents()
+        self.num_mood.display(self.count_mood)
+        QApplication.processEvents()
+        self.num_food.display(self.count_food)
+        QApplication.processEvents()
+        self.num_clean.display(self.count_clean)
+        QApplication.processEvents()
+        self.num_sleep.display(self.count_sleep)
+        QApplication.processEvents()
+
     def picturePutOn(self, name):
         """ функция для замены основной картинки"""
 
@@ -200,30 +219,35 @@ class MyWidget(QMainWindow):
                 self.step_healthy += self.number
             else:
                 self.step_healthy = 100
+            self.count_healthy += 1
 
         elif self.name == 'food':
             if self.step_food + self.number < 100:
                 self.step_food += self.number
             else:
                 self.step_food = 100
+            self.count_food += 1
 
         elif self.name == 'mood':
             if self.step_mood + self.number < 100:
                 self.step_mood += self.number
             else:
                 self.step_mood = 100
+            self.count_mood += 1
 
         elif self.name == 'clean':
             if self.step_clean + self.number < 100:
                 self.step_clean += self.number
             else:
                 self.step_clean = 100
+            self.count_clean += 1
 
         elif self.name == 'sleep':
             if self.step_sleep + self.number < 100:
                 self.step_sleep += self.number
             else:
                 self.step_sleep = 100
+            self.count_sleep += 1
 
     def doAction(self):
         """запуск таймера, его отсановка и рестарт"""
@@ -234,6 +258,13 @@ class MyWidget(QMainWindow):
         self.step_sleep = 100
         self.step_mood = 100
         self.step_clean = 100
+
+        # сброс счётчиков действий
+        self.count_healthy = 0
+        self.count_food = 0
+        self.count_mood = 0
+        self.count_clean = 0
+        self.count_sleep = 0
 
         if self.timer.isActive():
             self.timer.stop()
