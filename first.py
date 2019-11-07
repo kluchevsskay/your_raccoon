@@ -1,8 +1,7 @@
 import sys
 import InformationWindow
 from PyQt5 import uic
-from PyQt5.QtWidgets import QApplication, QPushButton, QLabel, QProgressBar, QMainWindow, QDialog
-from PyQt5.QtWidgets import QLCDNumber, QLineEdit
+from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtGui import QPixmap
 from PyQt5 import QtCore
 from PyQt5.QtCore import *
@@ -28,7 +27,7 @@ class MyWidget(QMainWindow):
 
         # проигрывание музыки на фоне
         self.playlist = QMediaPlaylist()
-        self.url = QUrl.fromLocalFile('основа.mp3')
+        self.url = QUrl.fromLocalFile('music/norm.mp3')
         self.playlist.addMedia(QMediaContent(self.url))
 
         self.player = QMediaPlayer()
@@ -41,7 +40,7 @@ class MyWidget(QMainWindow):
         self.off.clicked.connect(lambda: self.misicOnOff('off'))
 
         # основное изображение
-        self.name_picture = 'сидит.jpg'
+        self.name_picture = 'images_for_main_label/norm.jpg'
         self.picture1 = QPixmap(self.name_picture)
         self.picture.setPixmap(self.picture1)
 
@@ -139,7 +138,7 @@ class MyWidget(QMainWindow):
             self.timer.stop()
             self.begin.setText('ВСЁ СНАЧАЛА')
 
-            self.picturePutOn('обиделся.jpg')
+            self.picturePutOn('images_for_main_label/hurt.jpg')
             self.player.playlist().setCurrentIndex(0)
             self.player.play()
             return
@@ -147,15 +146,15 @@ class MyWidget(QMainWindow):
         # случай, когда все показатели в норме
         elif self.step_food > 80 or self.step_mood > 80 or self.step_clean > 80 \
                 or self.step_healthy > 80 or self.step_sleep > 80:
-            self.picturePutOn('сидит.jpg')
+            self.picturePutOn('images_for_main_label/norm.jpg')
             self.player.playlist().setCurrentIndex(0)
             self.player.play()
 
         # тревожная музыка на фон
         if self.step_food < 50 or self.step_mood < 50 or self.step_clean < 50 \
                 or self.step_healthy < 50 or self.step_sleep < 50:
-            self.url = QUrl.fromLocalFile('тревога.mp3')
-            self.playlist.addMedia(QMediaContent(self.url))
+            self.url1 = QUrl.fromLocalFile('music/not norm.mp3')
+            self.playlist.addMedia(QMediaContent(self.url1))
 
             self.player.playlist().setCurrentIndex(1)
             self.player.play()
@@ -167,19 +166,19 @@ class MyWidget(QMainWindow):
 
         # зависимость главного изображения от показателей
         if self.step_food < 80:
-            self.picturePutOn('просит кушать.jpg')
+            self.picturePutOn('images_for_main_label/wanna eat.jpg')
             QApplication.processEvents()
         elif self.step_mood < 80:
-            self.picturePutOn('скучно.jpg')
+            self.picturePutOn('images_for_main_label/boring.jpg')
             QApplication.processEvents()
         elif self.step_healthy < 80:
-            self.picturePutOn('болеет.jpg')
+            self.picturePutOn('images_for_main_label/sick.jpg')
             QApplication.processEvents()
         elif self.step_sleep < 80:
-            self.picturePutOn('хочет спать.jpg')
+            self.picturePutOn('images_for_main_label/wanna sleep.jpg')
             QApplication.processEvents()
         elif self.step_clean < 80:
-            self.picturePutOn('грязный.jpg')
+            self.picturePutOn('images_for_main_label/dirty.jpg')
             QApplication.processEvents()
 
         # счётчик дней

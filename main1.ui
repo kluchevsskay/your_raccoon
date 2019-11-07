@@ -350,7 +350,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>хилка.jpg</pixmap>
+     <pixmap>icons/kit.jpg</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="picture">
@@ -397,7 +397,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>настроение.jpg</pixmap>
+     <pixmap>icons/smile.jpg</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="sleep_pic">
@@ -428,7 +428,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>сон.jpg</pixmap>
+     <pixmap>icons/bed.jpg</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="food_pic">
@@ -459,7 +459,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>еда.jpg</pixmap>
+     <pixmap>icons/eat.jpg</pixmap>
     </property>
    </widget>
    <widget class="QTextBrowser" name="textBrowser_2">
@@ -575,7 +575,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>душ1.jpg</pixmap>
+     <pixmap>icons/shower.jpg</pixmap>
     </property>
    </widget>
    <widget class="QProgressBar" name="healthy">
@@ -830,7 +830,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>имя_11.jpg</pixmap>
+     <pixmap>other images/name_11.jpg</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="pic">
@@ -849,7 +849,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>имя_2.jpg</pixmap>
+     <pixmap>other images/name_2.jpg</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="hello_label">
@@ -979,7 +979,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>лечится.jpg</pixmap>
+     <pixmap>activities/treat.jpg</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="pic_num_food">
@@ -995,7 +995,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>естn.jpg</pixmap>
+     <pixmap>activities/is eating.jpg</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="pic_num_mood">
@@ -1011,7 +1011,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>играет.jpg</pixmap>
+     <pixmap>activities/play.jpg</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="pic_num_clean">
@@ -1027,7 +1027,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>моется.jpg</pixmap>
+     <pixmap>activities/is cleaning.jpg</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="pic_num_sleep">
@@ -1043,7 +1043,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>спит.jpg</pixmap>
+     <pixmap>activities/is sleeping.jpg</pixmap>
     </property>
    </widget>
    <widget class="QPushButton" name="continue_btn">
