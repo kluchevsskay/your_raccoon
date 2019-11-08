@@ -161,8 +161,6 @@ class MyWidget(QMainWindow):
         else:
             self.player.playlist().setCurrentIndex(0)
             self.player.play()
-        self.on.clicked.connect(lambda: self.misicOnOff('on'))
-        self.off.clicked.connect(lambda: self.misicOnOff('off'))
 
         # зависимость главного изображения от показателей
         if self.step_food < 80:
