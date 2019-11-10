@@ -16,7 +16,7 @@ class MyWidget(QMainWindow):
         uic.loadUi('main1.ui', self)
 
         # отображение имени
-        self.continue_btn.clicked.connect(self.nameGiven)
+        self.continue_btn.clicked.connect(self.name_given)
 
         # счётчик действий
         self.count_healthy = 0
@@ -26,18 +26,20 @@ class MyWidget(QMainWindow):
         self.count_sleep = 0
 
         # проигрывание музыки на фоне
-        self.playlist = QMediaPlaylist()
+        self.player = QMediaPlayer()
+        self.playlist = QMediaPlaylist(self.player)
         self.url = QUrl.fromLocalFile('music/norm.mp3')
         self.playlist.addMedia(QMediaContent(self.url))
+        self.url1 = QUrl.fromLocalFile('music/not norm.mp3')
+        self.playlist.addMedia(QMediaContent(self.url1))
 
-        self.player = QMediaPlayer()
         self.player.setPlaylist(self.playlist)
         self.player.playlist().setCurrentIndex(0)
         self.player.play()
 
         # включение и выключение музыки
-        self.on.clicked.connect(lambda: self.misicOnOff('on'))
-        self.off.clicked.connect(lambda: self.misicOnOff('off'))
+        self.on.clicked.connect(lambda: self.music_on_off('on'))
+        self.off.clicked.connect(lambda: self.music_on_off('off'))
 
         # основное изображение
         self.name_picture = 'images_for_main_label/norm.jpg'
@@ -45,7 +47,7 @@ class MyWidget(QMainWindow):
         self.picture.setPixmap(self.picture1)
 
         # запуск таймера при нажатии кнопки
-        self.begin.clicked.connect(self.doAction)
+        self.begin.clicked.connect(self.do_action)
         self.timer = QtCore.QBasicTimer()
 
         # процентные показатели жизнедеятельности
@@ -75,22 +77,22 @@ class MyWidget(QMainWindow):
         self.clean_btn.clicked.connect(lambda: self.life('clean', 50))
 
         # работа кнопки про музыку и информацию ("?")
-        self.misic.clicked.connect(lambda: self.openDialog('музыка'))
-        self.qst_clean.clicked.connect(lambda: self.openDialog('чистота'))
-        self.qst_sleep.clicked.connect(lambda: self.openDialog('сон'))
-        self.qst_food.clicked.connect(lambda: self.openDialog('еда'))
-        self.qst_mood.clicked.connect(lambda: self.openDialog('настроение'))
-        self.qst_healthy.clicked.connect(lambda: self.openDialog('здоровье'))
-        self.alina.clicked.connect(lambda: self.openDialog('автор'))
+        self.misic.clicked.connect(lambda: self.open_dialog_window('музыка'))
+        self.qst_clean.clicked.connect(lambda: self.open_dialog_window('чистота'))
+        self.qst_sleep.clicked.connect(lambda: self.open_dialog_window('сон'))
+        self.qst_food.clicked.connect(lambda: self.open_dialog_window('еда'))
+        self.qst_mood.clicked.connect(lambda: self.open_dialog_window('настроение'))
+        self.qst_healthy.clicked.connect(lambda: self.open_dialog_window('здоровье'))
+        self.alina.clicked.connect(lambda: self.open_dialog_window('автор'))
 
-    def nameGiven(self):
+    def name_given(self):
         """ передача введённого имени в специальное поле"""
 
         self.label_name.setText(self.name_of_raccoon.text())
         QApplication.processEvents()
         self.name_of_raccoon.setText('')
 
-    def misicOnOff(self, name):
+    def music_on_off(self, name):
         """ включение/выключение музыки"""
 
         if name == 'on':
@@ -98,23 +100,23 @@ class MyWidget(QMainWindow):
         elif name == 'off':
             self.player.stop()
 
-    def openDialog(self, name):
+    def open_dialog_window(self, name):
         """ открытие диалогового окна"""
 
         dialog = InformationWindow.Information()
         dialog.setWindowTitle(name)
-        dialog.setTextOnLabel(name)
+        dialog.set_text_on_label(name)
         dialog.exec_()
 
     def timerEvent(self, e):
         """функция для реагирования на события таймера, переопределение обработчик событий"""
 
         # сброс показателей
-        self.number_food = 0.5
-        self.number_mood = 0.3
-        self.number_sleep = 0.4
-        self.number_clean = 0.6
-        self.number_healthy = 0.2
+        self.number_food = 0.4
+        self.number_mood = 0.2
+        self.number_sleep = 0.3
+        self.number_clean = 0.5
+        self.number_healthy = 0.1
 
         # зависимость показателей друг от друга
         if self.step_food < 70:
@@ -138,7 +140,7 @@ class MyWidget(QMainWindow):
             self.timer.stop()
             self.begin.setText('ВСЁ СНАЧАЛА')
 
-            self.picturePutOn('images_for_main_label/hurt.jpg')
+            self.picture_put_on('images_for_main_label/hurt.jpg')
             self.player.playlist().setCurrentIndex(0)
             self.player.play()
             return
@@ -146,37 +148,33 @@ class MyWidget(QMainWindow):
         # случай, когда все показатели в норме
         elif self.step_food > 80 or self.step_mood > 80 or self.step_clean > 80 \
                 or self.step_healthy > 80 or self.step_sleep > 80:
-            self.picturePutOn('images_for_main_label/norm.jpg')
+            self.picture_put_on('images_for_main_label/norm.jpg')
             self.player.playlist().setCurrentIndex(0)
             self.player.play()
 
         # тревожная музыка на фон
         if self.step_food < 50 or self.step_mood < 50 or self.step_clean < 50 \
                 or self.step_healthy < 50 or self.step_sleep < 50:
-            self.url1 = QUrl.fromLocalFile('music/not norm.mp3')
-            self.playlist.addMedia(QMediaContent(self.url1))
-
             self.player.playlist().setCurrentIndex(1)
-            self.player.play()
         else:
             self.player.playlist().setCurrentIndex(0)
-            self.player.play()
+        self.player.play()
 
         # зависимость главного изображения от показателей
         if self.step_food < 80:
-            self.picturePutOn('images_for_main_label/wanna eat.jpg')
+            self.picture_put_on('images_for_main_label/wanna eat.jpg')
             QApplication.processEvents()
         elif self.step_mood < 80:
-            self.picturePutOn('images_for_main_label/boring.jpg')
+            self.picture_put_on('images_for_main_label/boring.jpg')
             QApplication.processEvents()
         elif self.step_healthy < 80:
-            self.picturePutOn('images_for_main_label/sick.jpg')
+            self.picture_put_on('images_for_main_label/sick.jpg')
             QApplication.processEvents()
         elif self.step_sleep < 80:
-            self.picturePutOn('images_for_main_label/wanna sleep.jpg')
+            self.picture_put_on('images_for_main_label/wanna sleep.jpg')
             QApplication.processEvents()
         elif self.step_clean < 80:
-            self.picturePutOn('images_for_main_label/dirty.jpg')
+            self.picture_put_on('images_for_main_label/dirty.jpg')
             QApplication.processEvents()
 
         # счётчик дней
@@ -217,7 +215,7 @@ class MyWidget(QMainWindow):
         self.label_count_days.setText(str(self.count_days))
         QApplication.processEvents()
 
-    def picturePutOn(self, name):
+    def picture_put_on(self, name):
         """ функция для замены основной картинки"""
 
         self.name_picture = name
@@ -264,7 +262,7 @@ class MyWidget(QMainWindow):
                 self.step_sleep = 100
             self.count_sleep += 1
 
-    def doAction(self):
+    def do_action(self):
         """запуск таймера, его отсановка и рестарт"""
 
         # сброс счётчика дней

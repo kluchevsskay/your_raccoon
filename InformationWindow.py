@@ -9,7 +9,7 @@ class Information(QDialog):
         super().__init__()
         uic.loadUi('information.ui', self)
 
-    def setTextOnLabel(self, name):
+    def set_text_on_label(self, name):
         """вывод текста в диалоговом окне"""
 
         self.name = name
